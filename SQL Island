@@ -1,0 +1,74 @@
+It seems there are a few people living in these villages. How can I see a list of all inhabitants?
+
+SELECT *
+FROM INHABITANT
+
+Thank you, Edward! Okay, let's see who is friendly on this island...
+
+SELECT *
+FROM INHABITANT
+WHERE state = 'friendly'
+
+There is no way around getting a sword for myself. I will now try to find a friendly weaponsmith to forge me one. 
+(Hint: You can combine predicates in the WHERE clause with AND)
+
+SELECT *
+FROM INHABITANT
+WHERE state = 'friendly' and job = 'weaponsmith'
+
+Oh, that does not look good. Maybe other friendly smiths can help you out, e.g. a blacksmith. 
+Try out: job LIKE '%smith' to find all inhabitants whose job ends with 'smith' 
+(% is a wildcard for any number of characters).
+
+SELECT *
+FROM INHABITANT
+WHERE state = 'friendly' and job LIKE '%smith'
+
+No need to call me stranger! What's my personid? 
+(Hint: In former queries, the * stands for: all columns. Instead of the star, you can also address one or more columns 
+(seperated by a comma) and you will only get the columns you need.)
+
+SELECT personid
+FROM INHABITANT
+WHERE name = 'Stranger'
+
+I can offer to make you a sword for 150 gold. That's the cheapest you will find! How much gold do you have?
+
+SELECT gold
+FROM INHABITANT
+WHERE name = 'Stranger'
+
+Damn! No mon, no fun. There has to be another option to earn gold other than going to work.
+Maybe I could collect ownerless items and sell them! Can I make a list of all items that don't belong to anyone?
+(Hint: You can recognize ownerless items by: WHERE owner IS NULL)
+
+SELECT *
+FROM ITEM
+WHERE owner IS NULL
+
+Do you know a trick how to collect all the ownerless items?
+
+UPDATE ITEM
+SET owner = 20
+WHERE owner IS NULL
+
+Now list all of the items I have!
+
+SELECT *
+FROM ITEM
+WHERE owner = 20
+
+Find a friendly inhabitant who is either a dealer or a merchant. 
+Maybe they want to buy some of my items. 
+(Hint: When you use both AND and OR, don't forget to put brackets correctly!)
+
+SELECT *
+FROM INHABITANT
+WHERE state = 'friendly' AND job = 'dealer' OR job = 'merchant'
+
+
+
+
+
+
+
