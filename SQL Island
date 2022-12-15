@@ -66,6 +66,43 @@ SELECT *
 FROM INHABITANT
 WHERE state = 'friendly' AND job = 'dealer' OR job = 'merchant'
 
+Unfortunately, that's not enough gold to buy a sword. Seems like I do have to work after all. 
+Maybe it's not a bad idea to change my name from Stranger to my real name before I will apply for a job.
+
+UPDATE INHABITANT
+SET name = 'Rama'
+WHERE personid = 20
+
+Is there a pilot on this island by any chance? He could fly me home.
+
+SELECT *
+FROM INHABITANT
+WHERE job = 'pilot'
+
+Find the Chief of Onionville
+
+SELECT inhabitant.name
+FROM village, inhabitant
+WHERE village.villageid = inhabitant.villageid AND personid = 13
+
+Hello Rama, the pilot is held captive by Dirty Dieter in his sister's house. 
+Shall I tell you how many women there are in Onionville? Nah, you can figure it out by yourself! 
+(Hint: Women show up as gender = 'f')
+
+SELECT COUNT(*) 
+FROM inhabitant, village
+WHERE village.villageid = inhabitant.villageid
+AND village.name = 'Onionville' AND gender = 'f'
+
+Oh, only one woman. What's her name?
+
+SELECT inhabitant.name 
+FROM inhabitant, village
+WHERE village.villageid = inhabitant.villageid
+AND village.name = 'Onionville' AND gender = 'f'
+
+
+
 
 
 
